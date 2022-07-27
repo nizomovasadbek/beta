@@ -12,13 +12,21 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Teacher {
 
     private Integer teacherId;
     private String firstName;
     private String lastName;
     private List<Subject> subjects = new ArrayList<>();
+
+    public Teacher(Integer id, String firstName, String lastName, Subject... subjs){
+        teacherId = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        for(Subject x:subjs){
+            subjects.add(x);
+        }
+    }
 
     public void addSubjects(Subject sub){
         subjects.add(sub);
